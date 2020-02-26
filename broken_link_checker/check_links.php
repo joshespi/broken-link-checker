@@ -24,7 +24,10 @@
 	while( $i < count($parts)) {
 		$file	= $parts[$i];
 		$link	= str_replace(' ', '', $parts[++$i]);
-			array_push($links_array, array($file,$link));		
+		if(filter_var($link, FILTER_VALIDATE_URL)) {
+			array_push($links_array, array($file,$link));
+		}
+					
 		$i++;
 	}
 	//print_r($links_array);
