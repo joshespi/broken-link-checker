@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sites=/var/www/sandbox.provo.edu
+sites=/var/www
 #grep -REo "(http|https)://[a-zA-Z0-9./?=_-]*" /var/www/sandbox.provo.edu/public-01-09-20/wp-content/themes/ | sed 's/:/ > /'| perl -pe 's/\n/ > /' >  linksfound.txt
 grep -REo --exclude-dir={assets,icons} --exclude='*.png' --exclude='*.svg' --exclude='*.pdf' --exclude='*.jpg' "(http|https)://[a-zA-Z0-9./?=_-]*" $sites/*/wp-content/themes/ | sed 's/:/ > /'| perl -pe 's/\n/ > /' >  linksfound.txt
 #echo $sites/*/wp-content/themes/
