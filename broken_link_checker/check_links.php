@@ -5,6 +5,11 @@
 	    curl_setopt($ch, CURLOPT_HEADER, 1);
 	    curl_setopt($ch , CURLOPT_RETURNTRANSFER, 1);
 	    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	    curl_setopt($ch, CURLOPT_NOBODY, true);
+	    if(strpos($url, 'provo.edu') !== false) {
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);      
+	    }
 	    $data = curl_exec($ch);
 	    $headers = curl_getinfo($ch);
 	    curl_close($ch);
